@@ -246,7 +246,7 @@
     <button class="btn" id="btn">I'm overthinking again</button>
 
     <div class="sub" id="sub">
-      <p class="sub-line">enough. go write. or at least read someone who did →</p>
+      <p class="sub-line">enough. go make the thing. or watch someone who did →</p>
       <div class="sub-row">
         <input type="email" id="email" class="sub-input" placeholder="your@email.com" autocomplete="email" />
         <button class="sub-btn" id="subBtn">join</button>
@@ -266,22 +266,26 @@
     "mog the algorithm or stay invisible. your call.",
     "you're not deep, you're just scared. no cap.",
     "this overthinking arc is so mid.",
-    "you've reread it 6 times, it's giving brain rot.",
+    "you've researched the roman empire enough. ship the thing.",
     "post-maxxing beats overthink-maxxing. lock in.",
     "shame doesn't monetize, fr.",
     "your taste has rizz. your output has none.",
-    "about to crash out over one caption. just post it.",
+    "about to crash out over one detail. just post it.",
     "\u201Calmost done\u201D since tuesday is wild.",
-    "the cursor's been blinking a sus amount of time.",
+    "you've been \u201Cresearching\u201D for a sus amount of time.",
     "genius nobody saw is just a rumor. ship it.",
-    "you're glazing your own draft instead of posting it.",
-    "stop looksmaxxing the sentence. it's fine. go.",
-    "a reader with anxiety. that's the whole arc rn.",
+    "you're glazing your own idea instead of shipping it.",
+    "stop polishing it. it's fine. go.",
+    "a fan of your own potential. that's the whole arc rn.",
     "the dread? that's the assignment. no cap.",
     "delulu to wait for the perfect version. the mid one wins.",
     "highkey you just don't wanna hit post.",
     "done has rizz. drafts are sus.",
-    "you're not editing, you're hiding. lowkey."
+    "you're not preparing, you're hiding. lowkey.",
+    "one more tutorial and you're a certified procrastinator.",
+    "the algorithm can't reward a screenshot in your camera roll.",
+    "you reorganized the folder again instead of posting. brave.",
+    "bookmarking it is not the same as doing it, bestie."
   ];
 
   const insult = document.getElementById('insult');
@@ -368,7 +372,7 @@
         body: JSON.stringify({ email })
       });
       if(r.ok){
-        subMsg.textContent = "you're in. now go write.";
+        subMsg.textContent = "you're in. now go make something.";
         subMsg.className = 'sub-msg ok';
         emailEl.value = '';
       } else {
@@ -386,213 +390,6 @@
   subBtn.addEventListener('click', subscribe);
   emailEl.addEventListener('keydown', e=>{
     if(e.code==='Enter'){ e.preventDefault(); subscribe(); }
-  });
-</script>
-</body>
-</html>  .insult{
-    font-family:'Anton',sans-serif;
-    font-weight:400;
-    text-transform:lowercase;
-    line-height:.92;
-    letter-spacing:-.01em;
-    text-align:center;
-    font-size:clamp(2.6rem,9vw,6.5rem);
-    word-break:break-word;
-    position:relative;
-  }
-  .insult .accent{color:var(--red)}
-  /* glitch animation on reveal */
-  @keyframes glitchIn{
-    0%{opacity:0;transform:translate(0,12px) skewX(0deg)}
-    10%{opacity:1;transform:translate(-6px,0) skewX(-6deg);clip-path:inset(40% 0 30% 0)}
-    20%{transform:translate(5px,0) skewX(4deg);clip-path:inset(10% 0 60% 0)}
-    30%{transform:translate(-3px,0) skewX(0deg);clip-path:inset(60% 0 5% 0)}
-    45%{transform:translate(2px,0);clip-path:inset(0 0 0 0)}
-    100%{opacity:1;transform:translate(0,0);clip-path:inset(0 0 0 0)}
-  }
-  .insult.show{animation:glitchIn .5s cubic-bezier(.2,.8,.2,1) both}
-  .insult.show::before,
-  .insult.show::after{
-    content:attr(data-text);
-    position:absolute;top:0;left:0;width:100%;height:100%;
-    pointer-events:none;
-  }
-  .insult.show::before{
-    color:var(--red);
-    animation:rgbShift .5s steps(2) 1;
-    opacity:0;
-    mix-blend-mode:multiply;
-  }
-  .insult.show::after{
-    color:#2e6be6;
-    animation:rgbShift2 .5s steps(2) 1;
-    opacity:0;
-    mix-blend-mode:multiply;
-  }
-  @keyframes rgbShift{
-    0%{opacity:.9;transform:translate(-5px,2px)}
-    30%{opacity:.6;transform:translate(4px,-2px)}
-    60%{opacity:0;transform:translate(0,0)}
-    100%{opacity:0}
-  }
-  @keyframes rgbShift2{
-    0%{opacity:.9;transform:translate(5px,-2px)}
-    30%{opacity:.6;transform:translate(-4px,2px)}
-    60%{opacity:0;transform:translate(0,0)}
-    100%{opacity:0}
-  }
-  /* button */
-  .btn{
-    font-family:'Archivo',sans-serif;
-    font-weight:900;
-    text-transform:uppercase;
-    letter-spacing:.04em;
-    font-size:clamp(1rem,3.4vw,1.35rem);
-    background:var(--black);
-    color:var(--yellow);
-    border:none;
-    padding:22px 38px;
-    cursor:pointer;
-    position:relative;
-    transition:transform .08s ease;
-    box-shadow:6px 6px 0 var(--red);
-    margin-bottom:40px;
-  }
-  .btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--red)}
-  .btn:active{transform:translate(4px,4px);box-shadow:2px 2px 0 var(--red)}
-  /* bottom counter */
-  .counter{
-    position:fixed;bottom:0;left:0;right:0;
-    display:flex;justify-content:space-between;align-items:center;
-    padding:14px 18px;
-    font-family:'JetBrains Mono',monospace;
-    font-size:11px;
-    font-weight:700;
-    letter-spacing:.1em;
-    text-transform:uppercase;
-    border-top:2px solid var(--black);
-    background:var(--yellow);
-    z-index:10;
-  }
-  .counter .num{color:var(--red);font-size:13px}
-  .counter .label{opacity:.65}
-  /* subtle flicker when count climbs */
-  @keyframes flick{0%,100%{opacity:1}50%{opacity:.4}}
-  .num.bump{animation:flick .25s 2}
-
-  @media (max-width:600px){
-    .topbar,.counter{font-size:9.5px;padding:11px 13px}
-    .btn{padding:18px 26px}
-    .insult-stage{padding:50px 0 10px}
-  }
-  @media (max-width:380px){
-    .topbar .tag{display:none}
-    .insult{font-size:clamp(2.2rem,11vw,3.4rem)}
-  }
-</style>
-</head>
-<body>
-  <div class="topbar">
-    <div class="brand">THE HUMAN GLITCH REPORT</div>
-    <div class="tag">100% HUMAN WRITTEN <span class="heart">&#9829;</span></div>
-  </div>
-
-  <div class="wrap">
-    <div class="insult-stage">
-      <h1 class="insult" id="insult" data-text="you again?">you again?</h1>
-    </div>
-    <button class="btn" id="btn">I'm overthinking again</button>
-  </div>
-
-  <div class="counter">
-    <span class="label">times you stalled instead of shipping</span>
-    <span class="num" id="count">0</span>
-  </div>
-
-<script>
-  const lines = [
-    "the draft in your notes app is lowkey embarrassing.",
-    "mog the algorithm or stay invisible. your call.",
-    "you're not deep, you're just scared. no cap.",
-    "this overthinking arc is so mid.",
-    "you've reread it 6 times, it's giving brain rot.",
-    "post-maxxing beats overthink-maxxing. lock in.",
-    "shame doesn't monetize, fr.",
-    "your taste has rizz. your output has none.",
-    "about to crash out over one caption. just post it.",
-    "\u201Calmost done\u201D since tuesday is wild.",
-    "the cursor's been blinking a sus amount of time.",
-    "genius nobody saw is just a rumor. ship it.",
-    "you're glazing your own draft instead of posting it.",
-    "stop looksmaxxing the sentence. it's fine. go.",
-    "a reader with anxiety. that's the whole arc rn.",
-    "the dread? that's the assignment. no cap.",
-    "delulu to wait for the perfect version. the mid one wins.",
-    "highkey you just don't wanna hit post.",
-    "done has rizz. drafts are sus.",
-    "you're not editing, you're hiding. lowkey."
-  ];
-
-  const insult = document.getElementById('insult');
-  const btn = document.getElementById('btn');
-  const countEl = document.getElementById('count');
-  const labelEl = document.querySelector('.counter .label');
-  let last = -1;
-
-  // persistent count across sessions (works on Vercel; resets in sandbox previews)
-  let count = 0;
-  try { count = parseInt(localStorage.getItem('hgr_overthink') || '0', 10) || 0; } catch(e){}
-  countEl.textContent = count;
-
-  // the label loses patience as the number climbs
-  const milestones = [
-    {at:50, text:"just close the tab"},
-    {at:25, text:"genuinely concerning"},
-    {at:10, text:"ok this is a lot"},
-    {at:0,  text:"times you stalled instead of shipping"}
-  ];
-  function updateLabel(){
-    for(const m of milestones){ if(count >= m.at){ labelEl.textContent = m.text; break; } }
-  }
-  updateLabel();
-
-  // pick the accent word: the last word, colored red
-  function render(text){
-    const words = text.split(' ');
-    const lastWord = words.pop();
-    insult.innerHTML = words.join(' ') + ' <span class="accent">' + lastWord + '</span>';
-    insult.setAttribute('data-text', text);
-  }
-
-  function fire(){
-    let i;
-    do { i = Math.floor(Math.random()*lines.length); } while(i === last && lines.length > 1);
-    last = i;
-
-    render(lines[i]);
-    insult.classList.remove('show');
-    void insult.offsetWidth; // reflow to restart animation
-    insult.classList.add('show');
-
-    count++;
-    countEl.textContent = count;
-    try { localStorage.setItem('hgr_overthink', count); } catch(e){}
-    updateLabel();
-    countEl.classList.remove('bump');
-    void countEl.offsetWidth;
-    countEl.classList.add('bump');
-
-    // physical hit on mobile, ignored on desktop
-    if(navigator.vibrate){ navigator.vibrate(40); }
-  }
-
-  btn.addEventListener('click', fire);
-  // also fire on tapping the insult itself
-  insult.addEventListener('click', fire);
-
-  // keyboard: spacebar / enter
-  document.addEventListener('keydown', e=>{
-    if(e.code==='Space' || e.code==='Enter'){ e.preventDefault(); fire(); }
   });
 </script>
 </body>
